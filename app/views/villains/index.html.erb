@@ -1,0 +1,39 @@
+<%= render 'menu' %>
+
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+
+    <h1 class="headline">Video Game Villains</h1>
+    <p>Check out this Wiki for a collection of the biggest, baddest video game villains out there. But there best part: You get to choose who's included, and who's not. Video Game Villain Wiki is a completely open platform where users can post, edit and update anything and everything.</p>
+
+    <hr>
+
+  </div>
+  <br />
+  <div class="col-md-8 col-md-offset-2">
+
+    <table>
+      <tbody>
+
+        <% @villains.each do |villain| %>
+
+        <tr>
+          <td><h2 class="headline"><center><%= link_to villain.name, "/villains/#{villain.id}"  %></center></h2></td>
+        </tr>
+        <tr>
+          <td class="avatar-cell"> <center><%= image_tag villain.avatar.url(:medium) %></center></td>
+          <td><%= villain.description %></td>
+        </tr>
+        <tr>
+          <td><br /><center><a href="<%= "/villains/#{villain.id}/edit" %>"><button class="btn btn-default">Edit <%= villain.name %></button>   <a href="<%= "/villains/#{villain.id}" %>" data-method='delete'><button class="btn btn-default">Delete <%= villain.name %></button></center></td>
+        </tr>
+
+        <% end %>
+
+      </tbody>
+    </table>
+
+    <br />
+
+  </div>
+</div> <!-- close .container -->

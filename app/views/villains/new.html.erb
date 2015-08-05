@@ -1,0 +1,54 @@
+<%= render "menu" %>
+
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+
+    <h1 class="headline">Add your favorite video game villain.</h1>
+    <p>But remember, proceed at your own risk!</p>
+
+  </div> <!-- close .col-md-6 -->
+
+  <div class="col-md-8 col-md-offset-2">
+
+    <%= form_for :villain, url: "/villains", method: "post", :html => { :multipart => true, :class => "form-horizontal-center" } do |f| %>
+
+      <div class="form-group">
+        <%= f.label :name, "Name", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div class="form group">
+        <%= f.label :description, "Backstory", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_area :description, class: "form-control" %>
+          </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div class="form group">
+        <%= f.label :avatar, "Villain Avatar", class: "col-md-4 control-label" %>
+        <div class="col-md-8 text-center">
+          <%= f.file_field :avatar, class: "form-control" %>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div class="form group">
+        <div class="col-md-8">
+          <%= f.submit "Save Villain", class: "btn btn-default" %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+
+</div> <!-- close .container -->

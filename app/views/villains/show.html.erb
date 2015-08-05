@@ -1,0 +1,33 @@
+<%= render "menu" %>
+
+<div class="container">
+  <div class="col-md-8 col-md-offset-2 text-center">
+    <h1 class="headline">Here's <%= @villain.name %>!</h1>
+    <p>Is he badass enough, or should you edit his profile?</p>
+
+    <hr>
+
+  </div>
+
+  <br />
+
+  <div class="col-md-8 col-md-offset-2">
+
+    <table>
+      <tbody>
+        <tr>
+          <td><h2 class="headline"><center><%= @villain.name %></center></h2></td>
+        </tr>
+        <tr>
+          <td class="avatar-cell"> <center><%= image_tag @villain.avatar.url(:medium) %></center></td>
+          <td><%= @villain.description %></td>
+        </tr>
+        <tr>
+          <td><br /><center><a href="<%= "/villains/#{@villain.id}/edit" %>"><button class="btn btn-default">Edit <%= @villain.name %></button>   <a href="<%= "/villains/#{@villain.id}" %>" data-method='delete'><button class="btn btn-default">Delete <%= @villain.name %></button></center></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div><!-- close .container -->
